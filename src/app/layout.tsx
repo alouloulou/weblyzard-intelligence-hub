@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { PostHogProvider } from "@/components/PostHogProvider";
 
 export const metadata: Metadata = {
   title: "webLyzard Web Intelligence Hub | Hybrid RAG & Visual Analytics",
@@ -9,17 +10,16 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: ReadEventProps<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en">
       <body className="min-h-screen bg-[#070e1b] text-slate-100 antialiased selection:bg-cyan-500 selection:text-white">
-        {children}
+        <PostHogProvider>
+          {children}
+        </PostHogProvider>
       </body>
     </html>
   );
 }
-
-// Helper type for Next.js layout props
-type ReadEventProps<T> = T;
