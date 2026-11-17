@@ -9,7 +9,7 @@ DEFAULT_DOCUMENTS = [
         "title": "Austrian National Hydrogen Strategy 2030: Electrolysis Capacity & Industrial Roadmap",
         "source": "BMK (Austrian Federal Ministry for Climate Action, Environment, Energy)",
         "date": "2025-11-14",
-        "url": "https://www.bmk.gv.at/themen/energie/wasserstoff.html",
+        "url": "https://www.bmk.gv.at/",
         "category": "Hydrogen & Storage",
         "text": "Austria's revised National Hydrogen Strategy targets 1 GW of domestic electrolysis capacity by 2030, scaling up to 4 GW by 2040. The strategic focus prioritizes hard-to-abate heavy industries—primarily steel production in Linz and chemical processing in Upper Austria and Lower Austria. The Austrian government has allocated €820 million in CAPEX subsidies under the EU Hydrogen Bank umbrella. Due to high Alpine grid stability and surplus seasonal hydropower, regional clusters along the Danube corridor are designated as early hydrogen production hubs. Import corridors via the SouthH2 Corridor connecting Italy, Austria, and Southern Germany will supply an estimated 60% of baseline industrial demand by 2035.",
         "entities": {
@@ -25,7 +25,7 @@ DEFAULT_DOCUMENTS = [
         "title": "Austrian Power Grid (APG) Investment Plan: €9 Billion for High-Voltage Decarbonization",
         "source": "APG (Austrian Power Grid)",
         "date": "2026-01-20",
-        "url": "https://www.apg.at/en/grid/grid-development-plan/",
+        "url": "https://www.apg.at/stromnetz/",
         "category": "Grid Infrastructure",
         "text": "Austrian Power Grid (APG) confirmed a landmark €9 billion grid modernization roadmap through 2034 to integrate intermittent wind and solar generation. Current transmission bottlenecks frequently force redispatch interventions, costing Austrian grid users over €140 million annually. Key projects include reinforcing the 380 kV transmission ring across Salzburg, Upper Austria, and Styria, alongside installing synchronous condensers to maintain grid inertia. APG highlights that grid connection requests for ground-mounted photovoltaics have surged by 310% in Burgenland and Lower Austria, requiring rapid regulatory approval for grid-scale battery storage co-location.",
         "entities": {
@@ -41,7 +41,7 @@ DEFAULT_DOCUMENTS = [
         "title": "EU Carbon Border Adjustment Mechanism (CBAM): Phase 2 Compliance for Austrian Heavy Industry",
         "source": "European Commission - DG Climate Action",
         "date": "2025-12-05",
-        "url": "https://ec.europa.eu/commission/presscorner/detail/en/cbam_report_2025",
+        "url": "https://taxation-customs.ec.europa.eu/carbon-border-adjustment-mechanism_en",
         "category": "Policy & Carbon Pricing",
         "text": "The European Commission's transition of CBAM into its definitive compliance phase imposes direct carbon pricing obligations on imports of cement, iron, steel, aluminum, fertilizers, and hydrogen. Austrian manufacturing leaders reported high administrative overhead during trial reporting, but economic models from WIFO indicate CBAM will safeguard European steel producers against carbon leakage from non-EU jurisdictions with unpriced emissions. Importers must purchase digital CBAM certificates corresponding to the EU ETS weekly average auction price, currently stabilizing around €78 per metric ton of CO2 equivalent.",
         "entities": {
@@ -57,7 +57,7 @@ DEFAULT_DOCUMENTS = [
         "title": "VERBUND Pumped Storage & Alpine Battery Hybridization in Kaprun",
         "source": "VERBUND AG Sustainability Dispatch",
         "date": "2026-02-02",
-        "url": "https://www.verbund.com/en-at/about-verbund/power-plants/pumped-storage-plants",
+        "url": "https://www.verbund.com/en-at/about-verbund/power-plants",
         "category": "Hydrogen & Storage",
         "text": "VERBUND AG, Austria's largest electricity provider, has completed the commissioning of its hybrid storage facility at the Limberg III power plant complex in Kaprun. Combining 480 MW of high-head pumped hydro capacity with an adjacent 60 MW / 120 MWh lithium-iron-phosphate (LFP) utility battery system, the facility provides millisecond primary frequency response followed by multi-hour bulk energy storage. VERBUND CEO highlighted that Alpine pumped storage acts as the 'green battery of Central Europe', balancing export fluctuations between the German wind belt and Austrian Alpine peak demand.",
         "entities": {
@@ -73,7 +73,7 @@ DEFAULT_DOCUMENTS = [
         "title": "Deep Geothermal District Heating in the Vienna Basin: Wien Energie & OMV Aderklaa Project",
         "source": "Wien Energie & OMV Media Center",
         "date": "2026-01-10",
-        "url": "https://www.wienenergie.at/ueber-uns/unternehmen/presse/geothermie-aderklaa/",
+        "url": "https://www.wienenergie.at/ueber-uns/unternehmen/energie-der-zukunft/geothermie/",
         "category": "Geothermal & Heating",
         "text": "Wien Energie and OMV have reached a final investment decision for the 'GeoVienna' deep geothermal extraction facility in Aspern and the Aderklaa reservoir. Drilling into permeable dolomite strata at depths exceeding 3,000 meters taps into hot thermal brine at 105°C. The geothermal plant will feed up to 120 MW of zero-emission thermal energy directly into Vienna's district heating network, supplying heat to more than 125,000 Viennese households by 2028. This replaces approximately 130 million cubic meters of fossil natural gas per year, marking Austria's largest urban municipal decarbonization milestone.",
         "entities": {
@@ -89,7 +89,7 @@ DEFAULT_DOCUMENTS = [
         "title": "Critical Raw Materials Act: Austria's Lithium Mining in Wolfsberg & Supply Chain Resilience",
         "source": "Austrian Mining Association & European Parliament",
         "date": "2025-10-18",
-        "url": "https://www.carinthia.gv.at/lithium-wolfsberg-project",
+        "url": "https://single-market-economy.ec.europa.eu/sectors/raw-materials/areas-specific-interest/critical-raw-materials_en",
         "category": "Industrial Decarbonization",
         "text": "Under the EU Critical Raw Materials Act (CRMA), domestic European extraction benchmarks require at least 10% of critical minerals to be mined within EU borders by 2030. The Wolfsberg Lithium Project in Carinthia, Austria, received preliminary environmental fast-track authorization for underground spodumene extraction. However, local municipal stakeholders and environmental NGOs have raised concerns over groundwater contamination risks in the Lavanttal valley and demanded closed-loop hydrometallurgical refining processes. The project aims to supply battery-grade lithium hydroxide for approximately 500,000 electric vehicle battery packs annually.",
         "entities": {
@@ -105,7 +105,7 @@ DEFAULT_DOCUMENTS = [
         "title": "Austrian PV Expansion Milestone: Solar Rooftop Cap Reached with Grid Curtailment Concerns",
         "source": "Photovoltaic Austria (PV Austria) Industry Review",
         "date": "2026-02-12",
-        "url": "https://www.pvaustria.at/statistiken-2025/",
+        "url": "https://pvaustria.at/",
         "category": "Renewable Generation",
         "text": "Austria recorded a cumulative installed solar PV capacity exceeding 7.5 GWp by the close of 2025, meeting the 2030 Renewable Expansion Act (EAG) solar targets five years ahead of schedule. However, rapid deployment has triggered negative electricity prices during sunny midday intervals on the EPEX SPOT power exchange, reaching minus €45/MWh in May 2025. Distribution System Operators (DSOs) in Lower Austria and Upper Austria were forced to curtail over 180 GWh of residential and commercial solar feed-in to prevent transformer overload, highlighting an urgent need for smart net-metering and dynamic local tariffs.",
         "entities": {
@@ -137,7 +137,7 @@ DEFAULT_DOCUMENTS = [
         "title": "Central European Heat Pump Adoption & Grid Interconnection Bottlenecks",
         "source": "European Heat Pump Association (EHPA)",
         "date": "2025-11-28",
-        "url": "https://www.ehpa.org/market-data-2025/",
+        "url": "https://www.ehpa.org/",
         "category": "Geothermal & Heating",
         "text": "Residential and commercial heat pump installations in Austria and Southern Germany surpassed 95,000 units in 2025, driven by the federal 'Raus aus Öl und Gas' subsidy framework covering up to 75% of boiler replacement costs. Nevertheless, the rapid increase in winter peak load presents challenges for low-voltage municipal distribution grids. Municipal utilities (Stadtwerke) are implementing automated load-shedding protocols under §14a EnWG regulations, allowing DSOs to temporarily throttle heat pump power draws during severe thermal peaks to safeguard local substation fuses.",
         "entities": {
@@ -153,7 +153,7 @@ DEFAULT_DOCUMENTS = [
         "title": "Carbon Capture, Utilization & Storage (CCUS) Framework in the Austrian Cement Industry",
         "source": "W&P Zement & Holcim Central Europe Consortium",
         "date": "2026-02-08",
-        "url": "https://www.zement.at/klimaneutralitaet-2050/",
+        "url": "https://www.zement.at/",
         "category": "Industrial Decarbonization",
         "text": "Austria's cement producers, led by W&P Zement in Carinthia and Rohrdorfer in Upper Austria, presented an updated industrial CCUS roadmap. Because process emissions from calcination cannot be eliminated solely via electrification, carbon capture remains mandatory to reach net zero by 2040. The consortium proposes building a dedicated CO2 railway transport corridor connecting Austrian clinker plants to maritime storage hubs in the North Sea (Northern Lights project) and depleted gas reservoirs in the Adriatic Sea. Regulatory clarity regarding Austrian bans on geological carbon storage remains a key legislative battleground in parliament.",
         "entities": {
@@ -169,7 +169,7 @@ DEFAULT_DOCUMENTS = [
         "title": "Danube Hydrokinetic & Run-of-River Power Optimization with Predictive AI Modeling",
         "source": "Institute of Water Management & VERBUND Hydro Power",
         "date": "2025-12-19",
-        "url": "https://www.verbund.com/en-at/about-verbund/power-plants/run-of-river-power-plants",
+        "url": "https://www.verbund.com/en-at/about-verbund/power-plants",
         "category": "Renewable Generation",
         "text": "VERBUND Hydro Power integrated neural hydro-meteorological forecasting models across its 10 run-of-river power plants on the Austrian Danube (including Aschach, Ottensheim-Wilhering, and Freudenau). Combining satellite snowpack observations in the Bavarian Alps with upstream telemetry, the predictive AI models anticipate discharge variations 72 hours in advance with 94.2% accuracy. This automated dispatch optimization yields an estimated 115 GWh in additional annual electricity generation without expanding turbine physical infrastructure, helping stabilize seasonal base load.",
         "entities": {
@@ -185,7 +185,7 @@ DEFAULT_DOCUMENTS = [
         "title": "Wind Energy Expansion in Eastern Austria: Repowering Bottlenecks & Biodiversity Guidelines",
         "source": "IG Windkraft Austria",
         "date": "2026-01-14",
-        "url": "https://www.igwindkraft.at/fakten-ausbau-2025/",
+        "url": "https://www.igwindkraft.at/",
         "category": "Renewable Generation",
         "text": "Burgenland and Lower Austria continue to host over 90% of Austria's onshore wind capacity, with repowering projects replacing legacy 1.5 MW turbines with modern 6.2 MW multi-megawatt systems. While repowering triples energy yield on existing turbine footprints, environmental licensing procedures under Nature Protection Directives average 4.2 years per wind park. IG Windkraft urges federal zoning harmonization and AI-powered radar collision-avoidance systems for red kites and white-tailed eagles to expedite pending permitting queues across the Parndorfer Platte.",
         "entities": {
