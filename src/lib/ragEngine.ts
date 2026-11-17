@@ -198,15 +198,18 @@ function generateFallbackBrief(query: string, retrievedDocs: RetrievedCandidate[
   const topDoc = retrievedDocs[0].document;
   const citationList = retrievedDocs.slice(0, 3).map((_, i) => `[Doc ${i + 1}]`).join(" ");
 
-  return `### **Executive Intelligence Brief**
+  return `### Executive Intelligence Brief
+
 Based on high-confidence analysis of ${retrievedDocs.length} verified reports ${citationList}, the evidence directly addresses **"${query}"** across Central European energy policy.
 
-### **Key Analytical Findings**
+### Key Analytical Findings
+
 - **Primary Source [Doc 1]**: *${topDoc.title}* published by **${topDoc.source}**.
 - **Verified Facts**: ${topDoc.text}
 - **Strategic Impact**: Subsidies, regulatory clarity, and grid-scale interconnection remain foundational drivers.
 
-### **Strategic Outlook & Grid Coordination**
+### Strategic Outlook & Grid Coordination
+
 - Infrastructure expansion must match renewable generation surges to avoid curtailment bottlenecks.
 - Refer to the verified evidence cards below for exact document citations and match scores.`;
 }

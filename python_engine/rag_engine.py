@@ -158,13 +158,13 @@ Please synthesize a verified intelligence brief citing the evidence [Doc X] dire
         citations = " ".join([f"[Doc {i+1}]" for i in range(min(3, len(retrieved_docs)))])
 
         return (
-            f"### **Executive Intelligence Brief**\n"
+            f"### Executive Intelligence Brief\n\n"
             f"Based on analysis of {len(retrieved_docs)} verified policy reports {citations}, the retrieved data directly addresses "
             f"**\"{query}\"** across Central European energy infrastructure.\n\n"
-            f"### **Key Analytical Findings**\n"
+            f"### Key Analytical Findings\n\n"
             f"- **Primary Focus [Doc 1]**: {top_doc.get('title')} emphasizes key targets established by {top_doc.get('source')}.\n"
             f"- **Core Details**: {top_doc.get('text')}\n\n"
-            f"### **Strategic Outlook & Grid Coordination**\n"
+            f"### Strategic Outlook & Grid Coordination\n\n"
             f"- Stakeholders report critical alignment between renewable generation deployment and transmission infrastructure expansion.\n"
             f"- Consult the cited source documents below for full regulatory documentation."
         )

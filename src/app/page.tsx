@@ -171,6 +171,31 @@ export default function WebLyzardDashboard() {
     }
   };
 
+  const renderFormattedText = (text: string) => {
+    // Regex splits on [Doc X] citations and **bold** markdown
+    const parts = text.split(/(\[Doc \d+\]|\*\*.*?\*\*)/g);
+    return parts.map((part, i) => {
+      if (/^\[Doc \d+\]$/.test(part)) {
+        return (
+          <span
+            key={i}
+            className="inline-flex items-center px-1.5 py-0.5 mx-0.5 rounded bg-cyan-950 border border-cyan-500/60 text-cyan-300 font-mono text-[11px] font-bold"
+          >
+            {part}
+          </span>
+        );
+      }
+      if (part.startsWith("**") && part.endsWith("**")) {
+        return (
+          <strong key={i} className="text-white font-semibold">
+            {part.slice(2, -2)}
+          </strong>
+        );
+      }
+      return part;
+    });
+  };
+
   return (
     <div className="min-h-screen bg-[#070e1b] text-slate-100 flex flex-col font-sans">
       {/* Top Navigation Bar */}
@@ -315,7 +340,7 @@ export default function WebLyzardDashboard() {
 
           {/* Quick-Preset Query Pills */}
           <div className="flex flex-wrap items-center gap-1.5 pt-1">
-            <span className="text-[11px] uppercase tracking-wider text-slate-500 font-semibold mr-1">
+            <span className="text-[11px] uppercase tracking-wider text-slate-400 font-semibold mr-1">
               Sample Prompts:
             </span>
             {PRESET_QUERIES.map((preset, idx) => (
@@ -323,10 +348,13 @@ export default function WebLyzardDashboard() {
                 key={idx}
                 onClick={() => {
                   setQuery(preset);
-                  executeSearch(preset);
                 }}
-                className="text-xs px-2.5 py-1 rounded-md bg-slate-900/70 hover:bg-cyan-950/60 border border-slate-800 hover:border-cyan-600/50 text-slate-300 hover:text-cyan-200 transition-colors cursor-pointer text-left truncate max-w-[280px]"
-                title={preset}
+                className={`text-xs px-2.5 py-1 rounded-md border transition-colors cursor-pointer text-left truncate max-w-[280px] ${
+                  query === preset
+                    ? "bg-cyan-950/90 border-cyan-500 text-cyan-200 font-medium shadow-sm shadow-cyan-500/20"
+                    : "bg-slate-900/70 hover:bg-cyan-950/60 border-slate-800 hover:border-cyan-600/50 text-slate-300 hover:text-cyan-200"
+                }`}
+                title="Click to select this prompt"
               >
                 {preset}
               </button>
@@ -399,32 +427,41 @@ export default function WebLyzardDashboard() {
                       ))}
                     </div>
 
-                    {/* Formatted Markdown-like Response */}
-                    <div className="prose prose-invert prose-sm max-w-none text-slate-200 leading-relaxed space-y-3">
+                    {/* Formatted Markdown-like Response with High-Contrast White Text */}
+                    <div className="space-y-4 text-slate-100 leading-relaxed">
                       {result.answer.split("\n\n").map((para, pIdx) => {
-                        if (para.startsWith("### ")) {
+                        const trimmed = para.trim();
+                        if (!trimmed) return null;
+
+                        if (trimmed.startsWith("### ")) {
+                          const headingText = trimmed.replace("### ", "").replace(/\*\*/g, "").trim();
                           return (
-                            <h3 key={pIdx} className="text-cyan-300 font-bold text-base mt-4 mb-2 flex items-center gap-2">
-                              <span className="h-2 w-2 rounded-full bg-cyan-400" />
-                              {para.replace("### ", "").replace(/\*\*/g, "")}
+                            <h3 key={pIdx} className="text-white font-bold text-base mt-5 mb-2 flex items-center gap-2 border-b border-slate-700/60 pb-1.5 tracking-tight">
+                              <span className="h-2 w-2 rounded-full bg-cyan-400 shrink-0" />
+                              <span>{headingText}</span>
                             </h3>
                           );
                         }
-                        if (para.startsWith("- ") || para.startsWith("* ")) {
-                          const bullets = para.split("\n").filter(Boolean);
+
+                        if (trimmed.startsWith("- ") || trimmed.startsWith("* ")) {
+                          const bullets = trimmed.split("\n").filter(Boolean);
                           return (
-                            <ul key={pIdx} className="space-y-1.5 my-2 pl-4 list-disc marker:text-cyan-400">
-                              {bullets.map((b, bIdx) => (
-                                <li key={bIdx} className="text-slate-300 text-sm leading-normal">
-                                  {b.replace(/^[-*]\s*/, "")}
-                                </li>
-                              ))}
+                            <ul key={pIdx} className="space-y-2 my-2.5 pl-4 list-disc marker:text-cyan-400">
+                              {bullets.map((b, bIdx) => {
+                                const cleanBullet = b.replace(/^[-*]\s*/, "");
+                                return (
+                                  <li key={bIdx} className="text-slate-100 text-sm leading-relaxed">
+                                    {renderFormattedText(cleanBullet)}
+                                  </li>
+                                );
+                              })}
                             </ul>
                           );
                         }
+
                         return (
-                          <p key={pIdx} className="text-slate-300 text-sm leading-relaxed">
-                            {para}
+                          <p key={pIdx} className="text-slate-100 text-sm leading-relaxed">
+                            {renderFormattedText(trimmed)}
                           </p>
                         );
                       })}
