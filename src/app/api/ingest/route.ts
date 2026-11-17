@@ -35,7 +35,7 @@ export async function POST(req: NextRequest) {
       sentiment_score: sentiment === "positive" ? 0.6 : sentiment === "challenging" ? -0.3 : 0.0,
     };
 
-    await retriever.addDocument(newDoc);
+    retriever.addDocument(newDoc);
 
     return NextResponse.json({
       success: true,

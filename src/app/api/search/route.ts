@@ -13,7 +13,7 @@ export async function POST(req: NextRequest) {
     }
 
     const retriever = getRetrieverInstance();
-    const results = await retriever.search(query, mode, topK);
+    const results = retriever.search(query, mode, topK);
 
     return NextResponse.json({
       query,

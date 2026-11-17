@@ -24,39 +24,45 @@ export class HybridRetriever {
     this.vectorEngine = new VectorSearchEngine();
   }
 
-  public async initialize(initialCorpus: KnowledgeDocument[] = INITIAL_DOCUMENTS) {
+  public initialize(initialCorpus: KnowledgeDocument[] = INITIAL_DOCUMENTS) {
     this.corpus = [...initialCorpus];
     this.bm25.fit(this.corpus);
-    await this.vectorEngine.fit(this.corpus);
+    this.vectorEngine.fit(this.corpus);
     this.isInitialized = true;
   }
 
   public getCorpus(): KnowledgeDocument[] {
+    if (!this.isInitialized) {
+      this.initialize();
+    }
     return this.corpus;
   }
 
-  public async addDocument(doc: KnowledgeDocument) {
+  public addDocument(doc: KnowledgeDocument) {
+    if (!this.isInitialized) {
+      this.initialize();
+    }
     this.corpus.unshift(doc);
     this.bm25.fit(this.corpus);
-    await this.vectorEngine.fit(this.corpus);
+    this.vectorEngine.fit(this.corpus);
   }
 
-  public async search(
+  public search(
     query: string,
     mode: "hybrid" | "vector_only" | "bm25_only" = "hybrid",
     topK: number = 4,
     bm25Weight: number = 0.5,
     vectorWeight: number = 0.5
-  ): Promise<RetrievedCandidate[]> {
+  ): RetrievedCandidate[] {
     if (!this.isInitialized) {
-      await this.initialize();
+      this.initialize();
     }
 
     if (!query.trim() || this.corpus.length === 0) return [];
 
     const candidateCount = Math.min(this.corpus.length, Math.max(topK * 2, 8));
     const bm25Results = this.bm25.search(query, candidateCount);
-    const vectorResults = await this.vectorEngine.search(query, candidateCount);
+    const vectorResults = this.vectorEngine.search(query, candidateCount);
 
     const bm25Ranks = new Map<number, number>();
     const bm25RawScores = new Map<number, number>();

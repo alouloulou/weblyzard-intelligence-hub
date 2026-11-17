@@ -14,7 +14,7 @@ export async function POST(req: NextRequest) {
     }
 
     const retriever = getRetrieverInstance();
-    const retrievedDocs = await retriever.search(query, mode, topK);
+    const retrievedDocs = retriever.search(query, mode, topK);
     const brief = await synthesizeIntelligenceBrief(query, retrievedDocs, mode);
 
     return NextResponse.json(brief);

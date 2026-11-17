@@ -52,61 +52,29 @@ export function generateSemanticHashEmbedding(text: string, dim: number = 128): 
 export class VectorSearchEngine {
   private corpus: KnowledgeDocument[] = [];
   private embeddings: Map<number, number[]> = new Map();
-  private aiClient: GoogleGenAI | null = null;
 
-  constructor() {
-    const apiKey = process.env.GEMINI_API_KEY;
-    if (apiKey) {
-      try {
-        this.aiClient = new GoogleGenAI({ apiKey });
-      } catch (err) {
-        console.warn("[VectorSearchEngine] GenAI init note:", err);
-      }
-    }
-  }
+  constructor() {}
 
-  public async embedText(text: string): Promise<number[]> {
-    // If Gemini client is available, attempt real embedding, otherwise fall back to semantic hash
-    if (this.aiClient) {
-      try {
-        // Attempt embedding via Gemini
-        const response = await this.aiClient.models.embedContent({
-          model: "text-embedding-004",
-          contents: text.slice(0, 2000),
-        });
-        const resAny = response as unknown as {
-          embeddings?: Array<{ values?: number[] }>;
-          embedding?: { values?: number[] };
-        };
-        if (resAny.embeddings?.[0]?.values) {
-          return Array.from(resAny.embeddings[0].values);
-        } else if (resAny.embedding?.values) {
-          return Array.from(resAny.embedding.values);
-        }
-      } catch (err) {
-        console.warn("[VectorSearchEngine] Gemini embedding fallback triggered:", err);
-      }
-    }
-
+  public embedText(text: string): number[] {
     return generateSemanticHashEmbedding(text, 128);
   }
 
-  public async fit(corpus: KnowledgeDocument[]) {
+  public fit(corpus: KnowledgeDocument[]) {
     this.corpus = corpus;
     this.embeddings.clear();
 
     for (let i = 0; i < corpus.length; i++) {
       const doc = corpus[i];
       const textToEmbed = `${doc.title} ${doc.category}: ${doc.text}`;
-      const embedding = await this.embedText(textToEmbed);
+      const embedding = this.embedText(textToEmbed);
       this.embeddings.set(i, embedding);
     }
   }
 
-  public async search(query: string, topK: number = 5): Promise<Array<{ docIndex: number; score: number }>> {
+  public search(query: string, topK: number = 5): Array<{ docIndex: number; score: number }> {
     if (this.corpus.length === 0 || !query.trim()) return [];
 
-    const queryVec = await this.embedText(query);
+    const queryVec = this.embedText(query);
     const results: Array<{ docIndex: number; score: number }> = [];
 
     for (const [docIdx, docVec] of this.embeddings.entries()) {
